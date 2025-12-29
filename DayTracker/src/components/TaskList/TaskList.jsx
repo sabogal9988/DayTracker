@@ -1,10 +1,15 @@
+import TaskItem from '../TaskItem/TaskItem'
 import './TaskList.css'
 
-function TaskList({ tasks }) {
+function TaskList({ tasks, onToggleTask }) {
   return (
     <ul className="task-list">
-      {tasks.map((task, index) => (
-        <li key={index}>{task}</li>
+      {tasks.map(task => (
+        <TaskItem
+          key={task.id}
+          task={task}
+          onToggle={onToggleTask}
+        />
       ))}
     </ul>
   )
