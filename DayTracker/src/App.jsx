@@ -3,6 +3,8 @@ import Calendar from './components/Calendar/Calendar'
 import TaskForm from './components/TaskForm/TaskForm'
 import TaskList from './components/TaskList/TaskList'
 import ProgressBar from './components/ProgressBar/ProgressBar'
+import Dashboard from './components/Dashboard/Dashboard'
+
 
 const today = new Date().toISOString().split('T')[0]
 
@@ -47,6 +49,11 @@ function App() {
   return (
     <div style={{ maxWidth: '400px', margin: '40px auto' }}>
       <h1>DayTracker</h1>
+
+      <Dashboard
+        tasksByDate={tasksByDate}
+        selectedDate={selectedDate}
+      />
 
       <Calendar
         selectedDate={selectedDate}
