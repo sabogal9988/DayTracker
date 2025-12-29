@@ -1,6 +1,65 @@
-.calendar {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 15px;
+.calendar-wrapper {
+  margin: 25px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 }
 
+.quick-days {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+
+.day-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 10px;
+  min-width: 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: white;
+}
+
+.day-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+.day-card.active {
+  background: #646cff; /* O el color principal de tu app */
+  border-color: #646cff;
+  box-shadow: 0 4px 15px rgba(100, 108, 255, 0.4);
+}
+
+.day-name {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.day-number {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.modern-date-input {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  outline: none;
+}
+
+.modern-date-input::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  opacity: 0.5;
+}
