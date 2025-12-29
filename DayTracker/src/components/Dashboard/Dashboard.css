@@ -1,13 +1,42 @@
 .dashboard {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 24px;
 }
 
 .card {
-  flex: 1;
-  padding: 12px;
-  background: #f3f4f6;
-  border-radius: 8px;
+  background: linear-gradient(180deg, #111827, #020617);
+  border-radius: 16px;
+  padding: 16px;
   text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,.4);
+  transition: transform .2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+.card h3 {
+  font-size: .7rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  margin-bottom: 6px;
+}
+
+.card p {
+  font-size: 1.6rem;
+  font-weight: 800;
+}
+
+.card span {
+  font-size: .7rem;
+  color: #94a3b8;
+}
+
+.streak {
+  background: linear-gradient(135deg, #fb7185, #f97316);
+  color: white;
 }

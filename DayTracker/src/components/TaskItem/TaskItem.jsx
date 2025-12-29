@@ -9,7 +9,7 @@ function TaskItem({ task, onToggle }) {
       onClick={() => onToggle(task.id)}
     >
       <span>{task.text}</span>
-      <small>{task.category}</small>
+      <small>{CATEGORIES[task.category].label}</small>
     </li>
   )
 }

@@ -5,7 +5,7 @@ import TaskList from './components/TaskList/TaskList'
 import ProgressBar from './components/ProgressBar/ProgressBar'
 import Dashboard from './components/Dashboard/Dashboard'
 import { TEXTS } from './constants/texts'
-
+import './App.css'
 
 const today = new Date().toISOString().split('T')[0]
 
@@ -15,42 +15,35 @@ function App() {
 
   const tasks = tasksByDate[selectedDate] || []
 
-  const addTask = (text, category) => {
-  setTasksByDate({
-    ...tasksByDate,
-    [selectedDate]: [
-      ...tasks,
-      {
-        id: Date.now(),
-        text,
-        completed: false,
-        category
-      }
-    ]
-  })
-}
+  // ➕ Agregar tarea (recibe el objeto completo)
+  const addTask = (task) => {
+    setTasksByDate(prev => ({
+      ...prev,
+      [selectedDate]: [...(prev[selectedDate] || []), task]
+    }))
+  }
 
-
+  // ✅ Toggle completado
   const toggleTask = (id) => {
-    setTasksByDate({
-      ...tasksByDate,
-      [selectedDate]: tasks.map(task =>
+    setTasksByDate(prev => ({
+      ...prev,
+      [selectedDate]: (prev[selectedDate] || []).map(task =>
         task.id === id
           ? { ...task, completed: !task.completed }
           : task
       )
-    })
+    }))
   }
 
+  // 📊 Progreso
   const completed = tasks.filter(t => t.completed).length
   const progress = tasks.length === 0
     ? 0
     : Math.round((completed / tasks.length) * 100)
 
   return (
-    <div style={{ maxWidth: '400px', margin: '40px auto' }}>
+    <div className="app">
       <h1>{TEXTS.appTitle}</h1>
-
 
       <Dashboard
         tasksByDate={tasksByDate}

@@ -1,19 +1,21 @@
 .task-item {
-  padding: 10px;
-  margin-bottom: 6px;
-  cursor: pointer;
-  background: #f9f9f9;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: background .2s;
 }
 
 .task-item.completed {
+  opacity: .5;
   text-decoration: line-through;
-  opacity: 0.6;
 }
 
-.task-item small {
-  font-size: 12px;
-  opacity: 0.7;
+.task-item:hover {
+  background: #020617;
 }

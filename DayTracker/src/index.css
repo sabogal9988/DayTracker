@@ -1,11 +1,21 @@
+:root {
+  --bg: #0f172a;
+  --card: #111827;
+  --primary: #3b82f6;
+  --success: #22c55e;
+  --warning: #f97316;
+  --text: #e5e7eb;
+  --muted: #9ca3af;
+  --border: #1f2933;
+}
+
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: system-ui, sans-serif;
-  background: #0f172a;
-  color: #e5e7eb;
+  margin: 0;
+  font-family: 'Inter', system-ui, sans-serif;
+  background: linear-gradient(180deg, #020617, #020617);
+  color: var(--text);
 }

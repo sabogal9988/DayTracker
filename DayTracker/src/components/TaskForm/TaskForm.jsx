@@ -1,29 +1,43 @@
+import { useState } from 'react'
 import './TaskForm.css'
-import { CATEGORIES } from '../../constants/categories'
 
 function TaskForm({ onAddTask }) {
+  const [text, setText] = useState('')
+  const [category, setCategory] = useState('study')
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    const text = e.target.task.value.trim()
-    const category = e.target.category.value
+    if (!text.trim()) return
 
-    if (!text) return
+    onAddTask({
+      id: crypto.randomUUID(),
+      text,
+      category,
+      completed: false
+    })
 
-    onAddTask(text, category)
-    e.target.reset()
+    setText('')
   }
 
   return (
     <form className="task-form" onSubmit={handleSubmit}>
-      <input name="task" placeholder="Nueva tarea..." />
+      <input
+        type="text"
+        placeholder="Nueva tarea..."
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
 
-      <select name="category">
-        {Object.keys(CATEGORIES).map(cat => (
-          <option key={cat} value={cat}>{cat}</option>
-        ))}
+      <select
+        value={category}
+        onChange={(e) => setCategory(e.target.value)}
+      >
+        <option value="study">📚 Estudio</option>
+        <option value="work">💼 Trabajo</option>
+        <option value="personal">🧘 Personal</option>
       </select>
 
-      <button>Agregar</button>
+      <button type="submit">➕</button>
     </form>
   )
 }

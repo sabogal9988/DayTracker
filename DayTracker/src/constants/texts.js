@@ -6,6 +6,10 @@ export const TEXTS = {
     week: 'Últimos 7 días',
     completed: '% completado',
   },
+  streak: {
+    title: 'Racha',
+    label: 'días seguidos'
+  },
 
   calendar: {
     label: 'Selecciona una fecha',
