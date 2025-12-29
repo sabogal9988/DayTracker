@@ -1,24 +1,19 @@
 import { useState } from 'react'
 import TaskForm from './components/TaskForm/TaskForm'
+import TaskList from './components/TaskList/TaskList'
 
 function App() {
   const [tasks, setTasks] = useState([])
 
-  const addTask = text => {
-    const newTask = {
-      id: Date.now(),
-      text,
-      completed: false,
-    }
-
-    setTasks([...tasks, newTask])
-    console.log('Tareas:', [...tasks, newTask])
+  const addTask = (text) => {
+    setTasks([...tasks, text])
   }
 
   return (
-    <div>
-      <h1>Organizador de actividades</h1>
+    <div style={{ maxWidth: '400px', margin: '40px auto' }}>
+      <h1>Organizador</h1>
       <TaskForm onAddTask={addTask} />
+      <TaskList tasks={tasks} />
     </div>
   )
 }

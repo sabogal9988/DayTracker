@@ -1,23 +1,22 @@
-import { useState } from 'react'
 import './TaskForm.css'
 
 function TaskForm({ onAddTask }) {
-  const [text, setText] = useState('')
-
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault()
-    if (text.trim() === '') return
+    const text = e.target.task.value.trim()
+
+    if (!text) return
+
     onAddTask(text)
-    setText('')
+    e.target.reset()
   }
 
   return (
     <form className="task-form" onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Nueva actividad..."
-        value={text}
-        onChange={e => setText(e.target.value)}
+        name="task"
+        placeholder="Nueva tarea..."
       />
       <button>Agregar</button>
     </form>
