@@ -1,4 +1,6 @@
 import './Dashboard.css'
+import { TEXTS } from '../../constants/texts'
+
 
 function Dashboard({ tasksByDate, selectedDate }) {
   const getProgress = (tasks = []) => {
@@ -35,13 +37,13 @@ function Dashboard({ tasksByDate, selectedDate }) {
   return (
     <div className="dashboard">
       <div className="card">
-        <h3>Día seleccionado</h3>
-        <p>{todayProgress}% completado</p>
+        <h3>{TEXTS.dashboard.today}</h3>
+        <p>{todayProgress}{TEXTS.dashboard.completed}</p>
       </div>
 
       <div className="card">
-        <h3>Últimos 7 días</h3>
-        <p>{weekProgress}% completado</p>
+        <h3>{TEXTS.dashboard.week}</h3>
+        <p>{weekProgress}{TEXTS.dashboard.completed}</p>
       </div>
     </div>
   )
