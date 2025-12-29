@@ -12,19 +12,21 @@ function App() {
 
   const tasks = tasksByDate[selectedDate] || []
 
-  const addTask = (text) => {
-    setTasksByDate({
-      ...tasksByDate,
-      [selectedDate]: [
-        ...tasks,
-        {
-          id: Date.now(),
-          text,
-          completed: false
-        }
-      ]
-    })
-  }
+  const addTask = (text, category) => {
+  setTasksByDate({
+    ...tasksByDate,
+    [selectedDate]: [
+      ...tasks,
+      {
+        id: Date.now(),
+        text,
+        completed: false,
+        category
+      }
+    ]
+  })
+}
+
 
   const toggleTask = (id) => {
     setTasksByDate({

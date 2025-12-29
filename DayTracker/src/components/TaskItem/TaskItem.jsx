@@ -1,12 +1,15 @@
 import './TaskItem.css'
+import { CATEGORIES } from '../../constants/categories'
 
 function TaskItem({ task, onToggle }) {
   return (
     <li
-      className={task.completed ? 'completed' : ''}
+      className={`task-item ${task.completed ? 'completed' : ''}`}
+      style={{ borderLeft: `6px solid ${CATEGORIES[task.category].color}` }}
       onClick={() => onToggle(task.id)}
     >
-      {task.text}
+      <span>{task.text}</span>
+      <small>{task.category}</small>
     </li>
   )
 }
